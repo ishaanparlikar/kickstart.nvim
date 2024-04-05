@@ -1,6 +1,5 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
-
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 local map = vim.keymap.set
 vim.opt.hlsearch = true
@@ -46,7 +45,7 @@ map('n', '<S-Tab>', '<cmd> BufferPrevious <CR>', { desc = 'Previous Buffer' })
 
 map('n', '<leader>x', '<Cmd>BufferClose<CR>', { desc = 'Close buffer' })
 map('n', '<leader>q', '<Cmd>BufferClose<CR>', { desc = 'Close buffer' })
-map('n', '<leader>Q', '<Cmd>:qa!<CR>', { desc = 'Close Neovim' })
+map('n', '<leader>Q', '<Cmd>qa!<CR>', { desc = 'Close Neovim' })
 
 -- Format
 map({ 'n', 'v' }, '<leader>=', function()
@@ -62,8 +61,8 @@ map('n', '<leader>l', function()
   require('lint').try_lint()
 end, { desc = 'Lint for current file' })
 
-map('n', '<leader>ww', '<cmd>:w<CR>', { desc = 'Save File' })
-map('n', '<leader>wq', '<cmd>:wq<CR>', { desc = 'Save and Quit' })
+map('n', '<leader>ww', '<cmd>w<CR>', { desc = 'Save File' })
+map('n', '<leader>wq', '<cmd>wq<CR>', { desc = 'Save and Quit' })
 
 -- Comment
 --
@@ -71,6 +70,8 @@ map({ 'n', 'v' }, '<leader>/', function()
   require('Comment.api').toggle.linewise.current()
 end, { desc = 'Comment Toggle' })
 
+-- Terminal
+map({ 'n', 'v' }, '<A-i>', '<cmd>ToggleTerm direction=float <cr>', { desc = 'Toggle Floating Terminal' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

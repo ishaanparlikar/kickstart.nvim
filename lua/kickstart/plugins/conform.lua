@@ -15,6 +15,15 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        svelte = { "prettier" },
+        html = { "prettier" },
+        css = { "prettier" },
+        astro = { "prettier" },
+        markdown = { "prettier" },
+        yaml = { "prettier" },
+        json = { "prettier" },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

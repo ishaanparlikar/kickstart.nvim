@@ -37,7 +37,7 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 map('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', { desc = 'Open Sidebar' })
 map('n', '<leader>gg', '<cmd>LazyGit<CR>', { desc = 'Open Lazygit' })
-map('n', '<leader>p', '<cmd>Telescope project<CR>', { desc = 'Open Projects' })
+map('n', '<leader>p', '<cmd>Telescope projects theme=dropdown<CR>', { desc = 'Open Projects' })
 
 -- Tabs
 map('n', '<C-w>', '<cmd> :BufferCloseAllButCurrent <CR>', { desc = 'Kill all tabs' })
@@ -50,27 +50,26 @@ map('n', '<leader>Q', '<Cmd>:qa!<CR>', { desc = 'Close Neovim' })
 
 -- Format
 map({ 'n', 'v' }, '<leader>=', function()
-  require("conform").format({
+  require('conform').format {
     lsp_fallback = true,
     async = false,
-    timeout = 500
-  })
+    timeout = 500,
+  }
 end, { desc = 'Format Document' })
 
 -- lint
 map('n', '<leader>l', function()
-  require("lint").try_lint()
+  require('lint').try_lint()
 end, { desc = 'Lint for current file' })
 
-map('n', '<leader>ww', "<cmd>:w<CR>", { desc = "Save File" })
-map('n', '<leader>wq', "<cmd>:wq<CR>", { desc = "Save and Quit" })
+map('n', '<leader>ww', '<cmd>:w<CR>', { desc = 'Save File' })
+map('n', '<leader>wq', '<cmd>:wq<CR>', { desc = 'Save and Quit' })
 
 -- Comment
 --
-map({ "n", "v" }, "<leader>/", function()
-  require("Comment.api").toggle.linewise.current()
-end, { desc = "Comment Toggle" })
-
+map({ 'n', 'v' }, '<leader>/', function()
+  require('Comment.api').toggle.linewise.current()
+end, { desc = 'Comment Toggle' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

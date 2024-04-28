@@ -47,6 +47,11 @@ map('n', '<leader>x', '<Cmd>BufferClose<CR>', { desc = 'Close buffer' })
 map('n', '<leader>q', '<Cmd>BufferClose<CR>', { desc = 'Close buffer' })
 map('n', '<leader>Q', '<Cmd>qa!<CR>', { desc = 'Close Neovim' })
 
+--Git
+
+map('n', '<leader>gg', '<cmd>LazyGit<CR>', { desc = 'Open Lazygit' })
+map('n', '<leader>gb', '<cmd>Gitsigns blame_line<CR>', { desc = 'Git Blame' })
+
 -- Format
 map({ 'n', 'v' }, '<leader>=', function()
   require('conform').format {

@@ -14,6 +14,9 @@ return {
         side = 'right',
         width = 40,
       },
+      update_focused_file = {
+        enable = true,
+      },
     }
   end,
 }

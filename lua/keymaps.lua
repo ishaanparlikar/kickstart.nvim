@@ -35,7 +35,6 @@ map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 map('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', { desc = 'Open Sidebar' })
-map('n', '<leader>gg', '<cmd>LazyGit<CR>', { desc = 'Open Lazygit' })
 map('n', '<leader>p', '<cmd>Telescope projects theme=dropdown<CR>', { desc = 'Open Projects' })
 
 -- Tabs

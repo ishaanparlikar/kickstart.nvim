@@ -17,10 +17,19 @@ local onedark = {
   end,
 }
 
+local github_dark = {
+  'projekt0n/github-nvim-theme',
+  lazy = false,
+  config = function()
+    require('github-theme').setup {}
+  end,
+}
+
 local eldritch = { 'eldritch-theme/eldritch.nvim', lazy = false, priority = 1000, opts = {} }
 
 return {
   poimandres,
   eldritch,
   onedark,
+  github_dark,
 }

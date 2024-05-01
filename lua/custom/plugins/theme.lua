@@ -13,7 +13,9 @@ local onedark = {
   'navarasu/onedark.nvim',
   lazy = false,
   config = function()
-    require('onedark').setup {}
+    require('onedark').setup {
+      style = 'deep',
+    }
   end,
 }
 
@@ -25,6 +27,21 @@ local github_dark = {
   end,
 }
 
+local night_owl = {
+  'oxfist/night-owl.nvim',
+  lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  priority = 1000, -- make sure to load this before all the other start plugins
+  config = function()
+    -- load the colorscheme here
+    require('night-owl').setup()
+    vim.cmd.colorscheme 'night-owl'
+  end,
+}
+
+local catppuccin = {
+  'catppuccin/nvim',
+}
+
 local eldritch = { 'eldritch-theme/eldritch.nvim', lazy = false, priority = 1000, opts = {} }
 
 return {
@@ -32,4 +49,6 @@ return {
   eldritch,
   onedark,
   github_dark,
+  night_owl,
+  catppuccin,
 }

@@ -78,7 +78,7 @@ end, { desc = 'Comment Toggle' })
 map({ 'n', 'v' }, '<A-i>', '<cmd>ToggleTerm direction=float <cr>', { desc = 'Toggle Floating Terminal' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
-
+map({ 'n', 'v' }, '<leader>R', '<cmd>LspRestart<cr>', { desc = 'Restart LSP Client' })
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`

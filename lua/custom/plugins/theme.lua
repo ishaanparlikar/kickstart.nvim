@@ -1,7 +1,7 @@
 local poimandres = {
   'olivercederborg/poimandres.nvim',
   lazy = false,
-  priority = 1000,
+  -- priority = 1000,
   config = function()
     require('poimandres').setup {
       disable_italics = false,
@@ -30,7 +30,7 @@ local github_dark = {
 local night_owl = {
   'oxfist/night-owl.nvim',
   lazy = false, -- make sure we load this during startup if it is your main colorscheme
-  priority = 1000, -- make sure to load this before all the other start plugins
+  -- priority = 1000, -- make sure to load this before all the other start plugins
   config = function()
     -- load the colorscheme here
     require('night-owl').setup()
@@ -44,11 +44,26 @@ local catppuccin = {
 
 local eldritch = { 'eldritch-theme/eldritch.nvim', lazy = false, priority = 1000, opts = {} }
 
+local material = {
+  'marko-cerovac/material.nvim',
+  lazy = false,
+  config = function()
+    require('material').setup {}
+  end,
+}
+
+local onedark_pro = {
+  'olimorris/onedarkpro.nvim',
+  -- priority = 1000, -- Ensure it loads first
+}
+
 return {
   poimandres,
   eldritch,
+  onedark_pro,
   onedark,
   github_dark,
   night_owl,
   catppuccin,
+  material,
 }

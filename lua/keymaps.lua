@@ -82,6 +82,11 @@ map({ 'n', 'v' }, '<leader>R', '<cmd>LspRestart<cr>', { desc = 'Restart LSP Clie
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
+
+-- Undo Tree Keymaps
+
+map({ 'n', 'v' }, '<leader>ut', '<cmd>UndotreeToggle<cr>', { desc = 'Undo Tree' })
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),

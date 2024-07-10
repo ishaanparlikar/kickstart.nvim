@@ -181,6 +181,7 @@ return {
         'lua-language-server',
         'prettierd',
         'svelte-language-server',
+        'astro-language-server',
         'tailwindcss-language-server',
         'typescript-language-server',
       })

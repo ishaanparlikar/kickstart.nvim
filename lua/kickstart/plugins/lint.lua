@@ -12,8 +12,8 @@ return {
         svelte = { 'eslint_d' },
         html = { 'eslint_d' },
         css = { 'eslint_d' },
-        astro = { 'eslint_d' },
-        yaml = { 'eslint_d' },
+        -- astro = { 'eslint_d' },
+        -- yaml = { 'eslint_d' },
         json = { 'eslint_d' },
       }
 

@@ -65,4 +65,5 @@ vim.opt.shiftwidth = 2
 -- insert 2 spaces for a tab
 vim.opt.tabstop = 2
 
--- vim: ts=2 sts=2 sw=2 et
+-- set term gui color
+vim.opt.termguicolors = true

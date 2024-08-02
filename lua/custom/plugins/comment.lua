@@ -4,11 +4,8 @@ return {
   opts = {
     -- add any options here
   },
-  lazy = false,
+  event = 'VeryLazy',
   config = function()
-    require("Comment").setup({
-
-    })
-  end
-
+    require('Comment').setup {}
+  end,
 }

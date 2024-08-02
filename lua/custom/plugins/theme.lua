@@ -8,7 +8,6 @@ local catppuccin = {
 local kanagawa = {
   'rebelot/kanagawa.nvim',
   -- priority = 1000, -- make sure to load this before all the other start plugins
-  lazy = false,
   config = function()
     require('kanagawa').setup {}
   end,
@@ -16,8 +15,6 @@ local kanagawa = {
 
 local gruvbox = {
   'ellisonleao/gruvbox.nvim',
-  priority = 1000,
-  lazy = false,
   config = true,
 }
 

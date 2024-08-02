@@ -95,4 +95,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- LSP actions
+map({ 'n', 'v' }, '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = 'LSP Code actions' })
+
 -- vim: ts=2 sts=2 sw=2 et

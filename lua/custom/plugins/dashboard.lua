@@ -2,10 +2,22 @@ return {
   'nvimdev/dashboard-nvim',
   event = 'VimEnter',
   config = function()
+    local logo = [[
+          ██████   █████                   █████   █████  ███                  
+          ░░██████ ░░███                   ░░███   ░░███  ░░░                  
+          ░███░███ ░███   ██████   ██████  ░███    ░███  ████  █████████████  
+          ░███░░███░███  ███░░███ ███░░███ ░███    ░███ ░░███ ░░███░░███░░███ 
+          ░███ ░░██████ ░███████ ░███ ░███ ░░███   ███   ░███  ░███ ░███ ░███  
+          ░███  ░░█████ ░███░░░  ░███ ░███  ░░░█████░    ░███  ░███ ░███ ░███
+          █████  ░░█████░░██████ ░░██████     ░░███      █████ █████░███ █████
+          ░░░░░    ░░░░░  ░░░░░░   ░░░░░░       ░░░      ░░░░░ ░░░░░ ░░░ ░░░░░
+      ]]
+    logo = string.rep('\n', 8) .. logo .. '\n\n'
     require('dashboard').setup {
       theme = 'doom',
       config = {
-        header = {}, --your header
+        header = vim.split(logo, '\n'),
+        disable_move = true,
         center = {
           {
             icon = ' ',
@@ -33,6 +45,20 @@ return {
             keymap = 'SPC',
             key_format = ' %s', -- remove default surrounding `[]`
             action = 'lua print(3)',
+          },
+          {
+            icon = ' ',
+            desc = 'Restore last session',
+            key = 'ql',
+            keymap = 'SPC',
+            key_format = ' %s', -- remove default surrounding `[]`
+          },
+          {
+            icon = ' ',
+            desc = 'Restore session',
+            key = 'qs',
+            keymap = 'SPC',
+            key_format = ' %s', -- remove default surrounding `[]`
           },
         },
         footer = function()

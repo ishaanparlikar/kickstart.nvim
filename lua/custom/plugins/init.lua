@@ -4,6 +4,6 @@
 -- See the kickstart.nvim README for more information
 
 return {
-  { 'nvim-tree/nvim-web-devicons', enabled = true },
-  { 'mbbill/undotree' },
+  { 'nvim-tree/nvim-web-devicons', enabled = true, event = 'VeryLazy' },
+  { 'mbbill/undotree', event = 'VeryLazy' },
 }

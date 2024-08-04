@@ -38,7 +38,7 @@ map('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', { desc = 'Open Sidebar' })
 map('n', '<leader>p', '<cmd>Telescope projects theme=dropdown<CR>', { desc = 'Open Projects' })
 
 -- Tabs
-map('n', '<C-w>', '<cmd> :BufferCloseAllButCurrent <CR>', { desc = 'Kill all tabs' })
+-- map('n', '<C-w>', '<cmd> :BufferCloseAllButCurrent <CR>', { desc = 'Kill all tabs' })
 map('n', '<tab>', '<cmd> BufferNext <CR>', { desc = 'Next Buffer' })
 map('n', '<S-Tab>', '<cmd> BufferPrevious <CR>', { desc = 'Previous Buffer' })
 
@@ -49,7 +49,7 @@ map('n', '<leader>Q', '<Cmd>qa!<CR>', { desc = 'Close Neovim' })
 --Git
 
 map('n', '<leader>gg', '<cmd>LazyGit<CR>', { desc = 'Open Lazygit' })
-map('n', '<leader>gb', '<cmd>Gitsigns blame_line<CR>', { desc = 'Git Blame' })
+-- map('n', '<leader>gb', '<cmd>Gitsigns blame_line<CR>', { desc = 'Git Blame' })
 
 -- Format
 map({ 'n', 'v' }, '<leader>==', function()

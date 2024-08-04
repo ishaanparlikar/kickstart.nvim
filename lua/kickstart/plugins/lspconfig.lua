@@ -1,6 +1,7 @@
 return {
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
+    event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       'williamboman/mason.nvim',
@@ -162,6 +163,8 @@ return {
             },
           },
         },
+
+        biome = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -179,8 +182,10 @@ return {
         'stylua', -- Used to format Lua code
         'eslint_d',
         'lua-language-server',
+        'biome',
         'prettierd',
         'svelte-language-server',
+        'astro-language-server',
         'tailwindcss-language-server',
         'typescript-language-server',
       })

@@ -1,5 +1,5 @@
 -- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
+--  See `:help vim.keymap.set()`key
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 local map = vim.keymap.set
 vim.opt.hlsearch = true
@@ -42,7 +42,6 @@ map('n', '<leader>p', '<cmd>Telescope projects theme=dropdown<CR>', { desc = 'Op
 map('n', '<tab>', '<cmd> BufferNext <CR>', { desc = 'Next Buffer' })
 map('n', '<S-Tab>', '<cmd> BufferPrevious <CR>', { desc = 'Previous Buffer' })
 
-map('n', '<leader>x', '<Cmd>BufferClose<CR>', { desc = 'Close buffer' })
 map('n', '<leader>q', '<Cmd>BufferClose<CR>', { desc = 'Close buffer' })
 map('n', '<leader>Q', '<Cmd>qa!<CR>', { desc = 'Close Neovim' })
 
@@ -70,9 +69,8 @@ map('n', '<leader>wq', '<cmd>wq<CR>', { desc = 'Save and Quit' })
 
 -- Comment
 --
-map({ 'n', 'v' }, '<leader>/', function()
-  require('Comment.api').toggle.linewise.current()
-end, { desc = 'Comment Toggle' })
+map({ 'n', 'v' }, '<leader>/', 'gcc', { remap = true }, { desc = 'Comment Toggle' })
+map({ 'n', 'v' }, '<C-/>', 'gcc', { remap = true }, { desc = 'Comment Toggle' })
 
 -- Terminal
 map({ 'n', 'v' }, '<A-i>', '<cmd>ToggleTerm direction=float <cr>', { desc = 'Toggle Floating Terminal' })

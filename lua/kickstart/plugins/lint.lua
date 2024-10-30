@@ -7,14 +7,14 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
-        javascript = { 'biomejs' },
-        typescript = { 'biomejs' },
+        javascript = { 'biomejs', 'eslint_d' },
+        typescript = { 'biomejs', 'eslint_d' },
         svelte = { 'biomejs' },
-        html = { 'biomejs' },
-        css = { 'biomejs' },
+        html = { 'biomejs', 'eslint_d' },
+        css = { 'biomejs', 'eslint_d' },
         -- astro = { 'biomejs' },
         -- yaml = { 'biomejs' },
-        json = { 'biomejs' },
+        json = { 'biomejs', 'eslint_d' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

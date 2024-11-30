@@ -12,6 +12,7 @@ return {
         svelte = { 'biomejs' },
         html = { 'biomejs', 'eslint_d' },
         css = { 'biomejs', 'eslint_d' },
+        vue = { 'eslint_d' },
         -- astro = { 'biomejs' },
         -- yaml = { 'biomejs' },
         json = { 'biomejs', 'eslint_d' },

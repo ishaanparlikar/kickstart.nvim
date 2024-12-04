@@ -71,6 +71,12 @@ return {
           project = {
             theme = 'dropdown',
           },
+          lsp_references = {
+            theme = 'ivy',
+          },
+          lsp_document_symbols = {
+            theme = 'ivy',
+          },
         },
         extensions = {
           ['ui-select'] = {

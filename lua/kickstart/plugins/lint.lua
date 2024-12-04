@@ -14,7 +14,7 @@ return {
         css = { 'biomejs', 'eslint_d' },
         -- astro = { 'biomejs' },
         -- yaml = { 'biomejs' },
-        json = { 'biomejs', 'eslint_d' },
+        -- json = { 'biomejs', 'eslint_d' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

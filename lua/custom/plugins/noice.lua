@@ -1,6 +1,10 @@
 return {
   'folke/noice.nvim',
   event = 'VeryLazy',
+  dependencies = {
+    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    'MunifTanjim/nui.nvim',
+  },
   opts = {
     lsp = {
       override = {
@@ -9,19 +13,7 @@ return {
         ['cmp.entry.get_documentation'] = true,
       },
     },
-    routes = {
-      {
-        filter = {
-          event = 'msg_show',
-          any = {
-            { find = '%d+L, %d+B' },
-            { find = '; after #%d+' },
-            { find = '; before #%d+' },
-          },
-        },
-        view = 'mini',
-      },
-    },
+    routes = {},
     presets = {
       bottom_search = true,
       command_palette = true,

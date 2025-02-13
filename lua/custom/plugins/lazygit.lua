@@ -1,5 +1,6 @@
 return {
   'kdheepak/lazygit.nvim',
+  enabled = false,
   event = 'VeryLazy',
   cmd = {
     'LazyGit',

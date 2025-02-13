@@ -67,3 +67,5 @@ vim.opt.tabstop = 2
 
 -- set term gui color
 vim.opt.termguicolors = true
+
+vim.opt.showtabline = 1

@@ -17,7 +17,7 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
-      require('mini.animate').setup()
+      -- require('mini.animate').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,

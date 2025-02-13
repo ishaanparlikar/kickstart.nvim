@@ -17,7 +17,7 @@ map('n', '<leader>gd', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]u
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+-- map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
 -- map('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -34,7 +34,6 @@ map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-map('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', { desc = 'Open Sidebar' })
 map('n', '<leader>p', '<cmd>Telescope projects theme=dropdown<CR>', { desc = 'Open Projects' })
 
 -- Tabs
@@ -45,13 +44,11 @@ map('n', '<S-Tab>', '<cmd> BufferPrevious <CR>', { desc = 'Previous Buffer' })
 map('n', '<leader>q', '<Cmd>BufferClose<CR>', { desc = 'Close buffer' })
 map('n', '<leader>Q', '<Cmd>qa!<CR>', { desc = 'Close Neovim' })
 
---Git
-
-map('n', '<leader>gg', '<cmd>LazyGit<CR>', { desc = 'Open Lazygit' })
--- map('n', '<leader>gb', '<cmd>Gitsigns blame_line<CR>', { desc = 'Git Blame' })
+-- Remove S mapping to better use with Mini Surround
+map('n', 's', '<Nop>', { noremap = true, silent = true })
 
 -- Format
-map({ 'n', 'v' }, '<leader>==', function()
+map({ 'n', 'v' }, '==', function()
   require('conform').format {
     lsp_fallback = true,
     async = false,
@@ -60,7 +57,7 @@ map({ 'n', 'v' }, '<leader>==', function()
 end, { desc = 'Format Document' })
 
 -- lint
-map('n', '<leader>l', function()
+map('n', '<leader>=', function()
   require('lint').try_lint()
 end, { desc = 'Lint for current file' })
 
@@ -69,11 +66,9 @@ map('n', '<leader>wq', '<cmd>wq<CR>', { desc = 'Save and Quit' })
 
 -- Comment
 --
-map({ 'n', 'v' }, '<leader>/', 'gcc', { remap = true }, { desc = 'Comment Toggle' })
-map({ 'n', 'v' }, '<C-/>', 'gcc', { remap = true }, { desc = 'Comment Toggle' })
+-- map({ 'n', 'v' }, '<leader>/', 'gcc', { desc = 'Comment Toggle' })
+map({ 'n', 'v' }, '<C-/>', 'gcc', { desc = 'Comment Toggle' })
 
--- Terminal
-map({ 'n', 'v' }, '<A-i>', '<cmd>ToggleTerm direction=float <cr>', { desc = 'Toggle Floating Terminal' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 map({ 'n', 'v' }, '<leader>R', '<cmd>LspRestart<cr>', { desc = 'Restart LSP Client' })
@@ -94,3 +89,177 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- vim: ts=2 sts=2 sw=2 et
+--
+-- Search
+
+map('n', '<leader>/h', function()
+  Snacks.picker.search_history()
+end, { desc = 'Search History' })
+map('n', '<leader>/a', function()
+  Snacks.picker.autocmds()
+end, { desc = 'Autocmds' })
+map('n', '<leader>/b', function()
+  Snacks.picker.lines()
+end, { desc = 'Buffer Lines' })
+map('n', '<leader>/c', function()
+  Snacks.picker.command_history()
+end, { desc = 'Command History' })
+map('n', '<leader>/C', function()
+  Snacks.picker.commands()
+end, { desc = 'Commands' })
+
+map('n', '<leader>/h', function()
+  Snacks.picker.help()
+end, { desc = 'Help Pages' })
+map('n', '<leader>/H', function()
+  Snacks.picker.highlights()
+end, { desc = 'Highlights' })
+map('n', '<leader>/i', function()
+  Snacks.picker.icons()
+end, { desc = 'Icons' })
+map('n', '<leader>/j', function()
+  Snacks.picker.jumps()
+end, { desc = 'Jumps' })
+map('n', '<leader>/k', function()
+  Snacks.picker.keymaps()
+end, { desc = 'Keymaps' })
+map('n', '<leader>/l', function()
+  Snacks.picker.loclist()
+end, { desc = 'Location List' })
+map('n', '<leader>/m', function()
+  Snacks.picker.marks()
+end, { desc = 'Marks' })
+map('n', '<leader>/M', function()
+  Snacks.picker.man()
+end, { desc = 'Man Pages' })
+map('n', '<leader>/p', function()
+  Snacks.picker.lazy()
+end, { desc = 'Search for Plugin Spec' })
+map('n', '<leader>/q', function()
+  Snacks.picker.qflist()
+end, { desc = 'Quickfix List' })
+map('n', '<leader>/R', function()
+  Snacks.picker.resume()
+end, { desc = 'Resume' })
+map('n', '<leader>/u', function()
+  Snacks.picker.undo()
+end, { desc = 'Undo History' })
+map('n', '<leader>uC', function()
+  Snacks.picker.colorschemes()
+end, { desc = 'Colorschemes' })
+
+-- LSP Snacks
+map('n', 'gd', function()
+  Snacks.picker.lsp_definitions()
+end, { desc = 'Goto Definition' })
+map('n', 'gD', function()
+  Snacks.picker.lsp_declarations()
+end, { desc = 'Goto Declaration' })
+map('n', 'gr', function()
+  Snacks.picker.lsp_references()
+end, { nowait = true, desc = 'References' })
+map('n', 'gI', function()
+  Snacks.picker.lsp_implementations()
+end, { desc = 'Goto Implementation' })
+map('n', 'gy', function()
+  Snacks.picker.lsp_type_definitions()
+end, { desc = 'Goto T[y]pe Definition' })
+map('n', '<leader>ls', function()
+  Snacks.picker.lsp_symbols()
+end, { desc = 'LSP Symbols' })
+map('n', '<leader>lS', function()
+  Snacks.picker.lsp_workspace_symbols()
+end, { desc = 'LSP Workspace Symbols' })
+map('n', '<leader>ld', function()
+  Snacks.picker.diagnostics()
+end, { desc = 'Diagnostics' })
+map('n', '<leader>lD', function()
+  Snacks.picker.diagnostics_buffer()
+end, { desc = 'Buffer Diagnostics' })
+
+-- File Picker
+
+map({ 'n', 'v' }, '<C-p>', function()
+  Snacks.picker.smart()
+end, { desc = 'Smart Find Files' })
+map('n', '<leader><leader>', function()
+  Snacks.picker.buffers()
+end, { desc = 'Buffers' })
+map('n', '<leader>fa', function()
+  Snacks.picker.grep()
+end, { desc = 'Grep' })
+map('n', '<leader>:', function()
+  Snacks.picker.command_history()
+end, { desc = 'Command History' })
+map('n', '<leader>n', function()
+  Snacks.picker.notifications()
+end, { desc = 'Notification History' })
+map('n', '<leader>e', function()
+  Snacks.explorer()
+end, { desc = 'File Explorer' })
+
+-- Find
+map('n', '<leader>fb', function()
+  Snacks.picker.buffers()
+end, { desc = 'Buffers' })
+map('n', '<leader>fc', function()
+  Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
+end, { desc = 'Find Config File' })
+map('n', '<leader>ff', function()
+  Snacks.picker.files()
+end, { desc = 'Find Files' })
+map('n', '<leader>fg', function()
+  Snacks.picker.git_files()
+end, { desc = 'Find Git Files' })
+map('n', '<leader>fp', function()
+  Snacks.picker.projects()
+end, { desc = 'Projects' })
+map('n', '<leader>fr', function()
+  Snacks.picker.recent()
+end, { desc = 'Recent' })
+
+--Git
+map('n', '<leader>gb', function()
+  Snacks.picker.git_branches()
+end, { desc = 'Git Branches' })
+map('n', '<leader>gl', function()
+  Snacks.picker.git_log()
+end, { desc = 'Git Log' })
+map('n', '<leader>gL', function()
+  Snacks.picker.git_log_line()
+end, { desc = 'Git Log Line' })
+map('n', '<leader>gs', function()
+  Snacks.picker.git_status()
+end, { desc = 'Git Status' })
+map('n', '<leader>gS', function()
+  Snacks.picker.git_stash()
+end, { desc = 'Git Stash' })
+map('n', '<leader>gd', function()
+  Snacks.picker.git_diff()
+end, { desc = 'Git Diff (Hunks)' })
+map('n', '<leader>gf', function()
+  Snacks.picker.git_log_file()
+end, { desc = 'Git Log File' })
+map({ 'n', 'v' }, '<leader>gB', function()
+  Snacks.gitbrowse()
+end, { desc = 'Git Browse' })
+map('n', '<leader>gg', function()
+  Snacks.lazygit()
+end, { desc = 'Lazygit' })
+
+-- Others
+map('n', '<leader>uh', function()
+  Snacks.toggle.inlay_hints()
+end, { desc = 'Toggle Inlay Hints' })
+map('n', '<leader>ug', function()
+  Snacks.toggle.indent()
+end, { desc = 'Toggle Indent Guides' })
+map('n', '<leader>ud', function()
+  Snacks.dim()
+end, { desc = 'Toggle Dim Inactive' })
+map('n', '<leader>.', function()
+  Snacks.scratch()
+end, { desc = 'Toggle Scratch Buffer' })
+map('n', '<leader>S', function()
+  Snacks.scratch.select()
+end, { desc = 'Select Scratch Buffer' })

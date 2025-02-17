@@ -16,7 +16,8 @@ require 'lazy-bootstrap'
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
 
--- require('bufferline').setup()
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 vim.cmd.colorscheme 'tokyonight-night'
+vim.opt.termguicolors = true
+require('bufferline').setup()

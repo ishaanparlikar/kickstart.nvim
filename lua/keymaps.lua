@@ -34,15 +34,17 @@ map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-map('n', '<leader>p', '<cmd>Telescope projects theme=dropdown<CR>', { desc = 'Open Projects' })
+-- map('n', '<leader>p', '<cmd>Telescope projects theme=dropdown<CR>', { desc = 'Open Projects' })
 
 -- Tabs
 -- map('n', '<C-w>', '<cmd> :BufferCloseAllButCurrent <CR>', { desc = 'Kill all tabs' })
-map('n', '<tab>', '<cmd> BufferNext <CR>', { desc = 'Next Buffer' })
-map('n', '<S-Tab>', '<cmd> BufferPrevious <CR>', { desc = 'Previous Buffer' })
+map('n', '<tab>', '<cmd>BufferLineCycleNext <CR>', { desc = 'Next Buffer' })
+map('n', '<S-Tab>', '<cmd>BufferLineCyclePrev <CR>', { desc = 'Previous Buffer' })
 
-map('n', '<leader>q', '<Cmd>BufferClose<CR>', { desc = 'Close buffer' })
-map('n', '<leader>Q', '<Cmd>qa!<CR>', { desc = 'Close Neovim' })
+map('n', '<leader>qc', '<Cmd>lua MiniBufremove.delete()<CR>', { desc = 'Close current buffer' })
+map('n', '<leader>Q', '<Cmd>BufferLineCloseOthers<CR>', { desc = 'Close Other buffers' })
+map('n', '<leader>qL', '<Cmd>BufferLineCloseLeft<CR>', { desc = 'Close Left buffers' })
+map('n', '<leader>qR', '<Cmd>BufferLineCloseRight<CR>', { desc = 'Close Right buffers' })
 
 -- Remove S mapping to better use with Mini Surround
 map('n', 's', '<Nop>', { noremap = true, silent = true })
@@ -67,7 +69,7 @@ map('n', '<leader>wq', '<cmd>wq<CR>', { desc = 'Save and Quit' })
 -- Comment
 --
 -- map({ 'n', 'v' }, '<leader>/', 'gcc', { desc = 'Comment Toggle' })
-map({ 'n', 'v' }, '<C-/>', 'gcc', { desc = 'Comment Toggle' })
+map({ 'n', 'v' }, '<C-a>', 'gcc', { desc = 'Comment Toggle' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -263,3 +265,10 @@ end, { desc = 'Toggle Scratch Buffer' })
 map('n', '<leader>S', function()
   Snacks.scratch.select()
 end, { desc = 'Select Scratch Buffer' })
+
+-- map('n', '<leader>st', function()
+--   Snacks.picker.todo_comments { keywords = { 'TODO', 'HACK', 'WARNING', 'BUG', 'NOTE', 'INFO', 'PERF', 'ERROR' } }
+-- end, { desc = 'Todo Comment Tags' })
+-- map('n', '<leader>sT', function()
+--   Snacks.picker.todo_comments()
+-- end, { desc = 'Todo' })

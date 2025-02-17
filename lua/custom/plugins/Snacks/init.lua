@@ -12,33 +12,13 @@ return {
     dim = require 'custom.plugins.Snacks.dim',
     terminal = require 'custom.plugins.Snacks.terminal',
     dashboard = require 'custom.plugins.Snacks.dashboard',
+    picker = require 'custom.plugins.Snacks.picker',
     bigfile = { enabled = true },
     explorer = {
       enabled = true,
     },
     indent = { enabled = true },
     input = { enabled = true },
-    picker = {
-      enabled = true,
-      sources = {
-        explorer = {
-          watch = false,
-          win = {
-            input = {
-              keys = {
-                ['<Tab>'] = { 'confirm', mode = { 'n', 'i' } },
-                ['<CR>'] = { 'select_and_next', mode = { 'i', 'n' } },
-              },
-            },
-          },
-          layout = {
-            layout = {
-              position = 'right',
-            },
-          },
-        },
-      },
-    },
     notifier = { enabled = true },
     notify = { enabled = true },
     quickfile = { enabled = true },

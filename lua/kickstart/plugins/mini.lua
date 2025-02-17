@@ -1,6 +1,7 @@
 return {
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
+    event = 'VeryLazy',
     config = function()
       -- Better Around/Inside textobjects
       --
@@ -18,6 +19,25 @@ return {
       require('mini.surround').setup()
 
       -- require('mini.animate').setup()
+      require('mini.comment').setup {
+        mappings = {
+          -- Toggle comment (like `gcip` - comment inner paragraph) for both
+          -- Normal and Visual modes
+          comment = '<C-/>',
+
+          -- Toggle comment on current line
+          comment_line = '<C-/>',
+
+          -- Toggle comment on visual selection
+          comment_visual = '<C-/>',
+
+          -- Define 'comment' textobject (like `dgc` - delete whole comment block)
+          -- Works also in Visual mode if mapping differs from `comment_visual`
+          textobject = 'gc',
+        },
+      }
+
+      require('mini.bufremove').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
